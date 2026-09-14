@@ -16,6 +16,16 @@
 
 ---
 
+## 🏠 家宽总订阅链接
+
+| 客户端 / 格式类型 | 家宽节点数 | 免翻 CDN 订阅直链 (国内直连) | 官方原生 Raw 直链 (开启代理) |
+| :--- | :---: | :--- | :--- |
+| 🚀 **Clash (YAML 格式)** | `1` | [免翻 CDN 直链](https://cdn.jsdelivr.net/gh/Ruriy06/freesub@main/output/residential-clash.yaml) | [官方 Raw 直链](https://raw.githubusercontent.com/Ruriy06/freesub/main/output/residential-clash.yaml) |
+| ⚡ **V2RayN (Base64 格式)** | `1` | [免翻 CDN 直链](https://cdn.jsdelivr.net/gh/Ruriy06/freesub@main/output/residential.txt) | [官方 Raw 直链](https://raw.githubusercontent.com/Ruriy06/freesub/main/output/residential.txt) |
+| 📦 **sing-box (JSON 格式)** | `1` | [免翻 CDN 直链](https://cdn.jsdelivr.net/gh/Ruriy06/freesub@main/output/residential-singbox.json) | [官方 Raw 直链](https://raw.githubusercontent.com/Ruriy06/freesub/main/output/residential-singbox.json) |
+
+---
+
 ## 🏠 按照家宽分类节点订阅 (住宅 IP 专区)
 
 > 家宽判定六重信号: ① ip-api.com `hosting` 字段 ② `mobile` 移动网络字段 ③ Cloudflare/主流 CDN Anycast 网段比对 ④ MaxMind GeoLite2 ASN 白/黑名单 (覆盖 60+ 国家主流民用运营商) ⑤ rDNS/ISP 名称特征 ⑥ Scamalytics 风控评分复核 (fraud ≥75 降级、≥90 剔除)。排除所有云主机/数据中心/CDN 任播, 保留真实民用宽带与移动网络。
