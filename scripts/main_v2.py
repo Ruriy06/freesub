@@ -2176,6 +2176,86 @@ def make_node_name(item, idx, force_residential=False):
     return f"{flag} {cname} {idx:02d}{tag}{risk_tag} - xiaohe"
 
 
+def markdown_cell(value):
+    """转义外部数据，避免破坏 Markdown 表格。"""
+    text = str(value if value not in (None, "") else "—")
+    return text.replace("\r\n", "\n").replace("\r", "\n").replace("\n", "<br>").replace("|", "\\|")
+
+
+def display_endpoint(server, port):
+    server = str(server or "未知")
+    if ":" in server and not server.startswith("["):
+        server = f"[{server}]"
+    return f"{server}:{port}" if port not in (None, "") else server
+
+
+def display_protocol(proto):
+    labels = {
+        "vless": "VLESS",
+        "vmess": "VMess",
+        "trojan": "Trojan",
+        "shadowsocks": "Shadowsocks",
+        "ss": "Shadowsocks",
+        "hysteria2": "Hysteria2",
+        "hy2": "Hysteria2",
+        "tuic": "TUIC",
+        "anytls": "AnyTLS",
+    }
+    raw = str(proto or "未知")
+    return labels.get(raw.lower(), raw.upper())
+
+
+def build_residential_overview(residential, repo_name):
+    """构建仅供浏览的家宽总览，不暴露节点 URI 或凭据。"""
+    repo_name = (repo_name or "hezhanleiok/freesub").strip()
+    cdn_base = f"https://cdn.jsdelivr.net/gh/{repo_name}@main/output"
+
+    if not residential:
+        return """# 🏠 全部地区家宽节点
+
+> 这是家宽总订阅的浏览页：只展示节点信息，不展示节点账号或密码。
+
+当前暂无可用家宽节点。下次自动更新后会在这里显示；无需选择地区。
+"""
+
+    rows = []
+    for idx, item in enumerate(residential, start=1):
+        country = f"{get_country_flag(item.get('country'))} {COUNTRY_NAMES.get(item.get('country'), item.get('country') or '未知')}"
+        latency = item.get("latency_ms")
+        latency_text = f"{int(latency)} ms" if isinstance(latency, (int, float)) and latency >= 0 else "—"
+        rows.append(
+            f"| {idx} | {markdown_cell(make_node_name(item, idx, force_residential=True))} | "
+            f"{markdown_cell(country)} | {markdown_cell(display_protocol(item.get('proto')))} | "
+            f"{markdown_cell(display_endpoint(item.get('server'), item.get('port')))} | {latency_text} |"
+        )
+
+    return f"""# 🏠 全部地区家宽节点
+
+> 这是家宽总订阅的浏览页：只展示节点信息，不展示节点账号或密码。当前共 **{len(residential)}** 个节点，无需按地区选择。
+
+## 添加到客户端
+
+选择你的客户端，复制对应的订阅地址即可：
+
+| 客户端 | 家宽总订阅地址 |
+| :--- | :--- |
+| v2rayN | <{cdn_base}/residential.txt> |
+| Clash / Mihomo | <{cdn_base}/residential-clash.yaml> |
+| sing-box | <{cdn_base}/residential-singbox.json> |
+
+## 当前节点
+
+| # | 节点名称 | 地区 | 协议 | 服务端 | 延迟 |
+| :---: | :--- | :--- | :--- | :--- | :---: |
+{chr(10).join(rows)}
+"""
+
+
+def write_residential_overview(residential, repo_name, filepath):
+    with open(filepath, "w", encoding="utf-8") as f:
+        f.write(build_residential_overview(residential, repo_name))
+
+
 def export_all(unique_nodes, residential, non_residential):
     ensure_directories()
 
@@ -2212,6 +2292,14 @@ def export_all(unique_nodes, residential, non_residential):
             p = os.path.join(OUTPUT_DIR, fn)
             if os.path.exists(p):
                 os.remove(p)
+
+    repo_name = os.environ.get("GITHUB_REPOSITORY", "hezhanleiok/freesub").strip()
+    residential_overview_nodes = [item for item in residential if item.get("outbound")]
+    write_residential_overview(
+        residential_overview_nodes,
+        repo_name,
+        os.path.join(OUTPUT_DIR, "residential-overview.md"),
+    )
 
     # 3) 按国家 - 普通区
     shutil.rmtree(COUNTRY_DIR, ignore_errors=True)
@@ -2315,7 +2403,7 @@ def update_readme(total_count, res_count):
 
     def table_rows(counts, sub):
         rows = []
-        for cc in sorted(counts, key=lambda x: counts[x], reverse=True):
+        for cc in sorted(counts, key=lambda x: (-counts[x], x)):
             flag = get_country_flag(cc)
             name = COUNTRY_NAMES.get(cc, cc)
             cnt = counts[cc]
@@ -2327,11 +2415,45 @@ def update_readme(total_count, res_count):
 
     res_table = table_rows(res_counts, "residential-by-country")
     normal_table = table_rows(normal_counts, "by-country")
+    overview_url = f"https://github.com/{repo_name}/blob/main/output/residential-overview.md"
+    if res_count:
+        res_subscription_section = f"""## 🏠 家宽总订阅（全部地区）
+
+> 不用选择地区：这里汇总当前全部家宽/移动网络节点。
+
+[**点击查看当前全部家宽节点（{res_count} 个）**]({overview_url})
+
+只想看节点时，点击上面的查看页；要导入客户端时，复制下方对应的订阅链接即可。
+
+| 你的客户端 | 家宽总订阅 |
+| :--- | :--- |
+| 🚀 **Clash / Mihomo** | [订阅链接](https://cdn.jsdelivr.net/gh/{repo_name}@main/output/residential-clash.yaml) |
+| ⚡ **v2rayN** | [订阅链接](https://cdn.jsdelivr.net/gh/{repo_name}@main/output/residential.txt) |
+| 📦 **sing-box** | [订阅链接](https://cdn.jsdelivr.net/gh/{repo_name}@main/output/residential-singbox.json) |
+
+<details>
+<summary>默认链接打不开？查看备用地址</summary>
+
+| 你的客户端 | 备用地址 |
+| :--- | :--- |
+| Clash / Mihomo | https://raw.githubusercontent.com/{repo_name}/main/output/residential-clash.yaml |
+| v2rayN | https://raw.githubusercontent.com/{repo_name}/main/output/residential.txt |
+| sing-box | https://raw.githubusercontent.com/{repo_name}/main/output/residential-singbox.json |
+
+</details>
+"""
+    else:
+        res_subscription_section = f"""## 🏠 家宽总订阅（全部地区）
+
+[**点击查看当前家宽节点状态**]({overview_url})
+
+当前暂无可用家宽节点；下次自动更新后会在此提供全部地区的总订阅，无需选择国家。
+"""
 
     readme = f"""# 🚀 免费节点自动测活订阅池 (含真实家宽/住宅IP甄选)
 
 > 👤 **定制规范命名**: 所有订阅节点均重命名为 `国旗 地区 序号 (家宽) - xiaohe`
-> ⚡ **真实可用保障**: 所有节点由 `sing-box v{SINGBOX_VERSION}` 内核建立实际代理隧道, 完成真实 HTTPS 双向传输握手 + 出口 IP 穿透验证 + Cloudflare 限速下载断流检测 + TLS 证书校验 (MITM 劫持识别), 拒绝虚假通畅、断流节点与高危劫持节点。
+> ⚡ **真实可用保障**: 所有节点由 `sing-box {SINGBOX_VERSION}` 内核建立实际代理隧道, 完成真实 HTTPS 双向传输握手 + 出口 IP 穿透验证 + Cloudflare 限速下载断流检测 + TLS 证书校验 (MITM 劫持识别), 拒绝虚假通畅、断流节点与高危劫持节点。
 > 🛡️ **全协议支持**: VLESS (Reality/Vision) · VMESS · Trojan · Shadowsocks · Hysteria2 · TUIC · AnyTLS
 
 ---
@@ -2346,17 +2468,11 @@ def update_readme(total_count, res_count):
 
 ---
 
-## 🏠 家宽总订阅链接
-
-| 客户端 / 格式类型 | 家宽节点数 | 免翻 CDN 订阅直链 (国内直连) | 官方原生 Raw 直链 (开启代理) |
-| :--- | :---: | :--- | :--- |
-| 🚀 **Clash (YAML 格式)** | `{res_count}` | [免翻 CDN 直链](https://cdn.jsdelivr.net/gh/{repo_name}@main/output/residential-clash.yaml) | [官方 Raw 直链](https://raw.githubusercontent.com/{repo_name}/main/output/residential-clash.yaml) |
-| ⚡ **V2RayN (Base64 格式)** | `{res_count}` | [免翻 CDN 直链](https://cdn.jsdelivr.net/gh/{repo_name}@main/output/residential.txt) | [官方 Raw 直链](https://raw.githubusercontent.com/{repo_name}/main/output/residential.txt) |
-| 📦 **sing-box (JSON 格式)** | `{res_count}` | [免翻 CDN 直链](https://cdn.jsdelivr.net/gh/{repo_name}@main/output/residential-singbox.json) | [官方 Raw 直链](https://raw.githubusercontent.com/{repo_name}/main/output/residential-singbox.json) |
+{res_subscription_section}
 
 ---
 
-## 🏠 按照家宽分类节点订阅 (住宅 IP 专区)
+## 🏠 按地区选择家宽节点（可选）
 
 > 家宽判定六重信号: ① ip-api.com `hosting` 字段 ② `mobile` 移动网络字段 ③ Cloudflare/主流 CDN Anycast 网段比对 ④ MaxMind GeoLite2 ASN 白/黑名单 (覆盖 60+ 国家主流民用运营商) ⑤ rDNS/ISP 名称特征 ⑥ Scamalytics 风控评分复核 (fraud ≥75 降级、≥90 剔除)。排除所有云主机/数据中心/CDN 任播, 保留真实民用宽带与移动网络。
 

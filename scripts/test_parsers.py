@@ -103,27 +103,30 @@ def run_test():
     print("=" * 70)
     print(f"阶段2: sing-box check 配置合法性 ({len(outbounds)} 个 outbound)")
     print("=" * 70)
-    import subprocess, tempfile
-    for name, ob in outbounds.items():
-        cfg = mv.build_test_config(ob, 53000 + (hash(name) % 500))
-        # 清理测试用多余字段 (domain_strategy 等不存在)
-        try:
-            with tempfile.NamedTemporaryFile("w", suffix=".json", delete=False, encoding="utf-8") as f:
-                json.dump(cfg, f)
-                path = f.name
-            r = subprocess.run([SB, "check", "-c", path], capture_output=True, text=True, timeout=15)
-            if r.returncode == 0:
-                print(f"  ✅ {name}: check PASS")
-            else:
-                err = (r.stderr or r.stdout or "").strip().splitlines()
-                err_short = err[-1][:100] if err else "?"
-                FAIL.append(f"[CHECK-FAIL] {name}: {err_short}")
-                print(f"  ❌ {name}: check FAIL → {err_short}")
-        finally:
+    if not os.path.exists(SB):
+        print(f"  ⏭️ 未找到 sing-box 内核，跳过运行时配置检查: {SB}")
+    else:
+        import subprocess, tempfile
+        for name, ob in outbounds.items():
+            cfg = mv.build_test_config(ob, 53000 + (hash(name) % 500))
+            # 清理测试用多余字段 (domain_strategy 等不存在)
             try:
-                os.remove(path)
-            except Exception:
-                pass
+                with tempfile.NamedTemporaryFile("w", suffix=".json", delete=False, encoding="utf-8") as f:
+                    json.dump(cfg, f)
+                    path = f.name
+                r = subprocess.run([SB, "check", "-c", path], capture_output=True, text=True, timeout=15)
+                if r.returncode == 0:
+                    print(f"  ✅ {name}: check PASS")
+                else:
+                    err = (r.stderr or r.stdout or "").strip().splitlines()
+                    err_short = err[-1][:100] if err else "?"
+                    FAIL.append(f"[CHECK-FAIL] {name}: {err_short}")
+                    print(f"  ❌ {name}: check FAIL → {err_short}")
+            finally:
+                try:
+                    os.remove(path)
+                except Exception:
+                    pass
 
     print()
     print("=" * 70)
@@ -146,6 +149,42 @@ def run_test():
         if got != expect and expect != "unknown":
             FAIL.append(f"[CLASSIFY] {ip} {org}: 期望 {expect} 实得 {got}")
         print(f"  {mark} {ip} ({org}) → {got} conf={conf}")
+
+    print()
+    print("=" * 70)
+    print("阶段4: 家宽总览页面生成（离线）")
+    print("=" * 70)
+    overview_sample = {
+        "country": "TW",
+        "net_type": "residential",
+        "confidence": 82,
+        "fraud_score": -1,
+        "server": "node|example\n.com",
+        "port": 443,
+        "proto": "vless",
+        "latency_ms": 123,
+    }
+    overview = mv.build_residential_overview([overview_sample], "owner/repo")
+    expected = [
+        "全部地区家宽节点",
+        "当前共 **1** 个节点",
+        "https://cdn.jsdelivr.net/gh/owner/repo@main/output/residential.txt",
+        "https://cdn.jsdelivr.net/gh/owner/repo@main/output/residential-clash.yaml",
+        "https://cdn.jsdelivr.net/gh/owner/repo@main/output/residential-singbox.json",
+        "node\\|example<br>.com:443",
+        "123 ms",
+    ]
+    missing = [item for item in expected if item not in overview]
+    if missing or "vless://" in overview:
+        FAIL.append(f"[OVERVIEW] 总览页内容异常: missing={missing}")
+        print(f"  ❌ 家宽总览: 缺少 {missing or '安全检查失败'}")
+    else:
+        empty_overview = mv.build_residential_overview([], "owner/repo")
+        if "暂无可用家宽节点" not in empty_overview or "residential.txt" in empty_overview:
+            FAIL.append("[OVERVIEW] 空家宽总览仍包含订阅链接")
+            print("  ❌ 家宽总览: 空状态异常")
+        else:
+            print("  ✅ 家宽总览: 链接、节点信息和转义均正确")
 
     print()
     print("=" * 70)
