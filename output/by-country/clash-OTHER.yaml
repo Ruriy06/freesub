@@ -4,32 +4,32 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇺🇸 美国 (United States) 01 (家宽) - xiaohe
-  server: 50.62.89.123
+- name: 🌐 其他地区 (Other) 01 - xiaohe
+  server: 104.16.72.30
   port: 443
   udp: true
   type: vless
-  uuid: 1d16c6e0-1bbe-435b-b661-90043fee999c
+  uuid: a8b1d666-d3ba-4b17-90c4-ba7514c74f78
   tls: true
-  servername: notls.lukongtou.eu.org
+  servername: xstack.mahanfixe.workers.dev
   skip-cert-verify: false
   client-fingerprint: chrome
   network: ws
   ws-opts:
-    path: /Telegram-WangCai2🇨🇳
+    path: /xiron
     headers:
-      Host: notls.lukongtou.eu.org
+      Host: xstack.mahanfixe.workers.dev
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇺🇸 美国 (United States) 01 (家宽) - xiaohe
+  - 🌐 其他地区 (Other) 01 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
-  - 🇺🇸 美国 (United States) 01 (家宽) - xiaohe
+  - 🌐 其他地区 (Other) 01 - xiaohe
 rules:
 - MATCH,PROXIES
