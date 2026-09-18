@@ -16,5 +16,5 @@
 
 | # | 节点名称 | 地区 | 协议 | 服务端 | 延迟 |
 | :---: | :--- | :--- | :--- | :--- | :---: |
-| 1 | 🇰🇷 韩国 (South Korea) 01 (家宽) - xiaohe | 🇰🇷 韩国 (South Korea) | VLESS | hg.zhujue.us:11000 | 1053 ms |
-| 2 | 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - xiaohe | 🇹🇼 中国台湾 (Taiwan) | VMess | 7dba81fc3a0b.oylfmxz.cn:443 | 1182 ms |
+| 1 | 🇰🇷 韩国 (South Korea) 01 (家宽) - xiaohe | 🇰🇷 韩国 (South Korea) | VLESS | hg.zhujue.us:11000 | 782 ms |
+| 2 | 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - xiaohe | 🇹🇼 中国台湾 (Taiwan) | VMess | 7dba81fc3a0b.oylfmxz.cn:443 | 1652 ms |
