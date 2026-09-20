@@ -1,6 +1,6 @@
 # 🏠 全部地区家宽节点
 
-> 这是家宽总订阅的浏览页：只展示节点信息，不展示节点账号或密码。当前共 **4** 个节点，无需按地区选择。
+> 这是家宽总订阅的浏览页：只展示节点信息，不展示节点账号或密码。当前共 **3** 个节点，无需按地区选择。
 
 ## 添加到客户端
 
@@ -16,7 +16,6 @@
 
 | # | 节点名称 | 地区 | 协议 | 服务端 | 延迟 |
 | :---: | :--- | :--- | :--- | :--- | :---: |
-| 1 | 🇺🇸 美国 (United States) 01 (家宽) - xiaohe | 🇺🇸 美国 (United States) | VLESS | 104.18.34.14:8880 | 199 ms |
-| 2 | 🇯🇵 日本 (Japan) 02 (家宽) - xiaohe | 🇯🇵 日本 (Japan) | VLESS | 206.251.53.91:8443 | 969 ms |
-| 3 | 🇹🇼 中国台湾 (Taiwan) 03 (家宽) - xiaohe | 🇹🇼 中国台湾 (Taiwan) | VMess | dee2309db4se3grs6e8hg4w61sd53g1.oylfmxz.cn:443 | 1983 ms |
-| 4 | 🇹🇼 中国台湾 (Taiwan) 04 (家宽) - xiaohe | 🇹🇼 中国台湾 (Taiwan) | VMess | dee2309db4944c248b6d4372c6641e25.oylfmxz.cn:443 | 2293 ms |
+| 1 | 🇯🇵 日本 (Japan) 01 (家宽) - xiaohe | 🇯🇵 日本 (Japan) | VLESS | 168.110.112.196:8443 | 1271 ms |
+| 2 | 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - xiaohe | 🇹🇼 中国台湾 (Taiwan) | VMess | dee2309db4944c248b6d4372c6641e25.oylfmxz.cn:443 | 1559 ms |
+| 3 | 🇹🇼 中国台湾 (Taiwan) 03 (家宽) - xiaohe | 🇹🇼 中国台湾 (Taiwan) | VMess | dee2309db4se3grs6e8hg4w61sd53g1.oylfmxz.cn:443 | 2143 ms |
