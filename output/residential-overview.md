@@ -16,7 +16,7 @@
 
 | # | 节点名称 | 地区 | 协议 | 服务端 | 延迟 |
 | :---: | :--- | :--- | :--- | :--- | :---: |
-| 1 | 🇹🇼 中国台湾 (Taiwan) 01 (家宽) - xiaohe | 🇹🇼 中国台湾 (Taiwan) | Shadowsocks | 36.224.185.173:50099 | 478 ms |
-| 2 | 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - xiaohe | 🇹🇼 中国台湾 (Taiwan) | VLESS | 118.167.246.43:24215 | 739 ms |
-| 3 | 🇹🇼 中国台湾 (Taiwan) 03 (家宽) - xiaohe | 🇹🇼 中国台湾 (Taiwan) | VMess | dee2309db4944c248b6d4672c6641e25.oylfmxz.cn:443 | 1804 ms |
-| 4 | 🇹🇼 中国台湾 (Taiwan) 04 (家宽) - xiaohe | 🇹🇼 中国台湾 (Taiwan) | VMess | dee2309db4944c248b6d4372c6641e25.oylfmxz.cn:443 | 1938 ms |
+| 1 | 🇺🇸 美国 (United States) 01 (家宽) - xiaohe | 🇺🇸 美国 (United States) | VLESS | 108.162.198.178:80 | 114 ms |
+| 2 | 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - xiaohe | 🇹🇼 中国台湾 (Taiwan) | VLESS | hinet1.2yly.com:24215 | 1203 ms |
+| 3 | 🇹🇼 中国台湾 (Taiwan) 03 (家宽) - xiaohe | 🇹🇼 中国台湾 (Taiwan) | VMess | dee2309db4se3g5sds35g4s3dg.oylfmxz.cn:443 | 1803 ms |
+| 4 | 🇹🇼 中国台湾 (Taiwan) 04 (家宽) - xiaohe | 🇹🇼 中国台湾 (Taiwan) | VMess | dee2309db4944c248b6d4372c6641e25.oylfmxz.cn:443 | 2647 ms |
