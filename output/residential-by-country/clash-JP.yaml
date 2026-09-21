@@ -5,19 +5,20 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇯🇵 日本 (Japan) 01 (家宽) - xiaohe
-  server: 168.110.112.196
-  port: 8443
+  server: 54.178.110.17
+  port: 4443
   udp: true
   type: vless
-  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+  uuid: d5fbd83b-7346-4ad9-94c0-76293724824d
   tls: true
-  servername: cdn8848.776676.xyz
+  servername: sxyyvihkektlx4rjxsdj.pkc73phpweu4rbxbatm444.workers.dev
   skip-cert-verify: false
+  client-fingerprint: chrome
   network: ws
   ws-opts:
-    path: /pay/music?ed=2560fp=chrome
+    path: /@Marisa_kristi
     headers:
-      Host: cdn8848.776676.xyz
+      Host: sxyyvihkektlx4rjxsdj.pkc73phpweu4rbxbatm444.workers.dev
 proxy-groups:
 - name: PROXIES
   type: select
