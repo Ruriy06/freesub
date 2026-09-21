@@ -18,20 +18,16 @@ proxies:
   servername: www.apple.com
   client-fingerprint: ios
 - name: 🇸🇨 塞舌尔 (Seychelles) 02 - xiaohe
-  server: 185.113.223.183
-  port: 8443
+  server: 45.130.125.75
+  port: 443
   udp: true
-  type: vless
-  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
-  tls: true
-  servername: cdn8848.776676.xyz
+  type: trojan
+  password: humanity
+  sni: www.calmlunch.com
   skip-cert-verify: false
-  client-fingerprint: chrome
   network: ws
   ws-opts:
-    path: /channels/act
-    headers:
-      Host: cdn8848.776676.xyz
+    path: /assignment
 proxy-groups:
 - name: PROXIES
   type: select
