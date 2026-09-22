@@ -16,4 +16,4 @@
 
 | # | 节点名称 | 地区 | 协议 | 服务端 | 延迟 |
 | :---: | :--- | :--- | :--- | :--- | :---: |
-| 1 | 🇺🇸 美国 (United States) 01 (家宽) - xiaohe | 🇺🇸 美国 (United States) | VLESS | 172.64.32.108:2052 | 112 ms |
+| 1 | 🇹🇼 中国台湾 (Taiwan) 01 (家宽) - xiaohe | 🇹🇼 中国台湾 (Taiwan) | VLESS | ttszhrmghgdssbkqf.cfooov.xyz:42241 | 1165 ms |
