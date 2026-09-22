@@ -16,4 +16,4 @@
 
 | # | 节点名称 | 地区 | 协议 | 服务端 | 延迟 |
 | :---: | :--- | :--- | :--- | :--- | :---: |
-| 1 | 🇭🇰 中国香港 (Hong Kong) 01 (家宽) - xiaohe | 🇭🇰 中国香港 (Hong Kong) | VMess | dee2309db4944c248b6d4372c6641e7b.oylfmxz.cn:443 | 1398 ms |
+| 1 | 🇺🇸 美国 (United States) 01 (家宽) - xiaohe | 🇺🇸 美国 (United States) | VLESS | 172.64.32.108:2052 | 112 ms |
