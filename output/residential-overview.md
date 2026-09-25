@@ -1,6 +1,6 @@
 # 🏠 全部地区家宽节点
 
-> 这是家宽总订阅的浏览页：只展示节点信息，不展示节点账号或密码。当前共 **1** 个节点，无需按地区选择。
+> 这是家宽总订阅的浏览页：只展示节点信息，不展示节点账号或密码。当前共 **4** 个节点，无需按地区选择。
 
 ## 添加到客户端
 
@@ -16,4 +16,7 @@
 
 | # | 节点名称 | 地区 | 协议 | 服务端 | 延迟 |
 | :---: | :--- | :--- | :--- | :--- | :---: |
-| 1 | 🇹🇷 土耳其 (Turkey) 01 (移动家宽) - xiaohe | 🇹🇷 土耳其 (Turkey) | VLESS | test.keoplentuio.xyz:2053 | 891 ms |
+| 1 | 🇺🇸 美国 (United States) 01 (家宽) - xiaohe | 🇺🇸 美国 (United States) | VLESS | 172.64.32.108:2052 | 167 ms |
+| 2 | 🇭🇰 中国香港 (Hong Kong) 02 (家宽) - xiaohe | 🇭🇰 中国香港 (Hong Kong) | Hysteria2 | 6dd24f6b-tm96o0-tnggms-6gn6.hk3.hyhuawei.com:443 | 780 ms |
+| 3 | 🇹🇷 土耳其 (Turkey) 03 (移动家宽) - xiaohe | 🇹🇷 土耳其 (Turkey) | VLESS | test.keoplentuio.xyz:2053 | 1073 ms |
+| 4 | 🇭🇰 中国香港 (Hong Kong) 04 (家宽) - xiaohe | 🇭🇰 中国香港 (Hong Kong) | AnyTLS | ac7548f3ebe045b39a90288ff1e97528.pnuqcnp.cn:443 | 1425 ms |
