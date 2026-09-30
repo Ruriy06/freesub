@@ -16,5 +16,5 @@
 
 | # | 节点名称 | 地区 | 协议 | 服务端 | 延迟 |
 | :---: | :--- | :--- | :--- | :--- | :---: |
-| 1 | 🇺🇸 美国 (United States) 01 (移动家宽) - xiaohe | 🇺🇸 美国 (United States) | VLESS | 188.114.97.6:2082 | 84 ms |
-| 2 | 🇭🇰 中国香港 (Hong Kong) 02 (家宽) - xiaohe | 🇭🇰 中国香港 (Hong Kong) | Hysteria2 | hk01.kfc-520.com:60001 | 1203 ms |
+| 1 | 🇺🇸 美国 (United States) 01 (家宽) - xiaohe | 🇺🇸 美国 (United States) | VLESS | 162.159.24.131:2052 | 100 ms |
+| 2 | 🇬🇧 英国 (United Kingdom) 02 (家宽) - xiaohe | 🇬🇧 英国 (United Kingdom) | Trojan | 199.232.78.188:443 | 118 ms |
