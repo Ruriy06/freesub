@@ -16,6 +16,6 @@
 
 | # | 节点名称 | 地区 | 协议 | 服务端 | 延迟 |
 | :---: | :--- | :--- | :--- | :--- | :---: |
-| 1 | 🇺🇸 美国 (United States) 01 (家宽) - xiaohe | 🇺🇸 美国 (United States) | VLESS | 162.159.45.19:2086 | 166 ms |
-| 2 | 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - xiaohe | 🇹🇼 中国台湾 (Taiwan) | VLESS | hinet1.2yly.com:24215 | 827 ms |
-| 3 | 🇹🇷 土耳其 (Turkey) 03 (移动家宽) - xiaohe | 🇹🇷 土耳其 (Turkey) | VLESS | test.keoplentuio.xyz:2053 | 850 ms |
+| 1 | 🇭🇰 中国香港 (Hong Kong) 01 (家宽) - xiaohe | 🇭🇰 中国香港 (Hong Kong) | Hysteria2 | 2219f493-tmm5c0-tpftcp-13x18.nw4.hyhuawei.com:443 | 637 ms |
+| 2 | 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - xiaohe | 🇹🇼 中国台湾 (Taiwan) | VLESS | hinet1.2yly.com:24215 | 765 ms |
+| 3 | 🇹🇷 土耳其 (Turkey) 03 (移动家宽) - xiaohe | 🇹🇷 土耳其 (Turkey) | VLESS | 178.83.46.216:2053 | 1020 ms |

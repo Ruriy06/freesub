@@ -4,17 +4,15 @@
   },
   "outbounds": [
     {
-      "type": "vless",
-      "tag": "🇺🇸 美国 (United States) 01 (家宽) - xiaohe",
-      "server": "162.159.45.19",
-      "server_port": 2086,
-      "uuid": "47fcef29-ab4e-4aa6-932b-d95a18f28a4e",
-      "transport": {
-        "type": "ws",
-        "path": "/?ed=2560security=tls",
-        "headers": {
-          "Host": "8nj2r.2k8t.f88.hh.vavava.kdns.fr"
-        }
+      "type": "hysteria2",
+      "tag": "🇭🇰 中国香港 (Hong Kong) 01 (家宽) - xiaohe",
+      "server": "2219f493-tmm5c0-tpftcp-13x18.nw4.hyhuawei.com",
+      "server_port": 443,
+      "password": "e4499a62-0cfe-11eb-ad8c-f23c9164ca5d",
+      "tls": {
+        "enabled": true,
+        "server_name": "2219f493-tmm5c0-tpftcp-13x18.nw4.hyhuawei.com",
+        "insecure": true
       }
     },
     {
@@ -40,7 +38,7 @@
     {
       "type": "vless",
       "tag": "🇹🇷 土耳其 (Turkey) 03 (移动家宽) - xiaohe",
-      "server": "test.keoplentuio.xyz",
+      "server": "178.83.46.216",
       "server_port": 2053,
       "uuid": "9ef61079-6f7d-4911-9608-943da85d8e6f"
     },
@@ -49,7 +47,7 @@
       "tag": "select",
       "outbounds": [
         "auto",
-        "🇺🇸 美国 (United States) 01 (家宽) - xiaohe",
+        "🇭🇰 中国香港 (Hong Kong) 01 (家宽) - xiaohe",
         "🇹🇼 中国台湾 (Taiwan) 02 (家宽) - xiaohe",
         "🇹🇷 土耳其 (Turkey) 03 (移动家宽) - xiaohe"
       ]
@@ -58,7 +56,7 @@
       "type": "urltest",
       "tag": "auto",
       "outbounds": [
-        "🇺🇸 美国 (United States) 01 (家宽) - xiaohe",
+        "🇭🇰 中国香港 (Hong Kong) 01 (家宽) - xiaohe",
         "🇹🇼 中国台湾 (Taiwan) 02 (家宽) - xiaohe",
         "🇹🇷 土耳其 (Turkey) 03 (移动家宽) - xiaohe"
       ],
