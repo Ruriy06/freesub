@@ -16,5 +16,5 @@
 
 | # | 节点名称 | 地区 | 协议 | 服务端 | 延迟 |
 | :---: | :--- | :--- | :--- | :--- | :---: |
-| 1 | 🇺🇸 美国 (United States) 01 (家宽) - xiaohe | 🇺🇸 美国 (United States) | VLESS | 172.64.154.8:2095 | 83 ms |
-| 2 | 🇹🇷 土耳其 (Turkey) 02 (移动家宽) - xiaohe | 🇹🇷 土耳其 (Turkey) | Hysteria2 | me17.msjia8844.site:7443 | 2118 ms |
+| 1 | 🇭🇰 中国香港 (Hong Kong) 01 (家宽) - xiaohe | 🇭🇰 中国香港 (Hong Kong) | Hysteria2 | 09661312-tmm5c0-u1dafb-1ro8s.hk3.hyhuawei.com:443 | 874 ms |
+| 2 | 🇭🇰 中国香港 (Hong Kong) 02 (家宽) - xiaohe | 🇭🇰 中国香港 (Hong Kong) | Hysteria2 | 33632b49-tmm5c0-tonrmx-8n27.nw4.hyhuawei.com:443 | 886 ms |
