@@ -16,6 +16,6 @@
 
 | # | 节点名称 | 地区 | 协议 | 服务端 | 延迟 |
 | :---: | :--- | :--- | :--- | :--- | :---: |
-| 1 | 🇯🇵 日本 (Japan) 01 (家宽) - xiaohe | 🇯🇵 日本 (Japan) | VLESS | 128.241.25.11:30021 | 350 ms |
-| 2 | 🇹🇷 土耳其 (Turkey) 02 (移动家宽) - xiaohe | 🇹🇷 土耳其 (Turkey) | VLESS | 212.74.39.235:2053 | 553 ms |
-| 3 | 🇹🇼 中国台湾 (Taiwan) 03 (家宽) - xiaohe | 🇹🇼 中国台湾 (Taiwan) | VLESS | argo6.5671234.xyz:443 | 1140 ms |
+| 1 | 🇺🇸 美国 (United States) 01 (家宽) - xiaohe | 🇺🇸 美国 (United States) | VLESS | 162.159.45.19:2086 | 255 ms |
+| 2 | 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - xiaohe | 🇹🇼 中国台湾 (Taiwan) | VLESS | 172.66.152.4:443 | 766 ms |
+| 3 | 🇦🇹 奥地利 (Austria) 03 (家宽) - xiaohe | 🇦🇹 奥地利 (Austria) | VLESS | 31.77.227.6:52006 | 775 ms |
