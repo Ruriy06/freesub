@@ -16,5 +16,5 @@
 
 | # | 节点名称 | 地区 | 协议 | 服务端 | 延迟 |
 | :---: | :--- | :--- | :--- | :--- | :---: |
-| 1 | 🇺🇸 美国 (United States) 01 (家宽) - xiaohe | 🇺🇸 美国 (United States) | VLESS | 162.159.24.131:80 | 129 ms |
-| 2 | 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - xiaohe | 🇹🇼 中国台湾 (Taiwan) | VLESS | 172.66.152.4:443 | 990 ms |
+| 1 | 🇹🇷 土耳其 (Turkey) 01 (移动家宽) R50 - xiaohe | 🇹🇷 土耳其 (Turkey) | VLESS | test.keoplentuio.xyz:2053 | 944 ms |
+| 2 | 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - xiaohe | 🇹🇼 中国台湾 (Taiwan) | VLESS | 45.192.201.140:443 | 1105 ms |
